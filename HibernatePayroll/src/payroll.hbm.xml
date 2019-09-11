@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+	<class name="com.hibernate.assignment22.payroll.Employee" table="employee">
+
+		<id name="empid" type="int" column="emp_id">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="empname" column="emp_name" type="string"></property>
+		<property name="empemail" column="emp_email" type="string"></property>
+		<property name="empphone" column="emp_phone" type="string"></property>
+		<property name="empsalaryrefe" column="emp_salaryreference" type="int"></property>
+		<property name="empAccount" column="emp_account" type="string"></property>
+		<property name="empoverpay" column="emp_overpay" type="int"></property>
+		<property name="empstatus" column="emp_status" type="string"></property>
+		
+		
+		
+	</class>
+	
+	<class name="com.hibernate.assignment22.payroll.Account" table="account">
+
+		<id name="accountid" type="int" column="account_id">
+			<generator class="native"></generator>
+		</id>
+		
+		<property name="accounttype" column="account_type" type="string"></property>
+		<property name="accountbankname" column="account_bankname" type="string"></property>
+		<property name="accountbanknumber" column="account_accountNumber" type="string"></property>
+		<property name="accountroutingnumber" column="account_routingNumber" type="string"></property>
+		<property name="empid" column="emp_id" type="int"></property>
+		
+	</class>
+	
+	<class name="com.hibernate.assignment22.payroll.Salary" table="salary">
+
+		<id name="salaryid" type="int" column="salary_id">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="salarybase" column="salary_base" type="double"></property>
+		<property name="salarytravel" column="salary_travel" type="double"></property>
+		<property name="salaryfood" column="salary_food" type="double"></property>
+		<property name="salaryinsurance" column="salary_insurance" type="double"></property>
+		<property name="empid" column="emp_id" type="int"></property>
+		
+		
+	</class>
+	
+		<class name="com.hibernate.assignment22.payroll.Payroll" table="salaryformonth">
+
+		<id name="payrollid" type="int" column="som_id">
+			<generator class="native"></generator>
+		</id>
+
+		<property name="payrolldate" column="som_date" type="string"></property>
+		<property name="payrolltotalsalary" column="som_totalSalary" type="string"></property>
+		<property name="payrollsatus" column="som_paymentStatus" type="string"></property>
+		<property name="empid" column="emp_id" type="int"></property>
+		
+		
+	</class>
+
+</hibernate-mapping>
